@@ -1,4 +1,4 @@
-## Hi Friend!! 👋
+# Hi Friend!! 👋
 <img src="https://github.com/SCIERke/SCIERke/blob/main/Images/cat_white_2.png" alt="Profile Picture" width="20%" align="right" alt="Github"/>
 
 Hi, my name is Peerapat Setsuk.I'm studying at Bodindecha (Sing Singhaseni) 2 School.<br>
@@ -8,6 +8,8 @@ I'm passionate about **Cybersecurity, Programming, and especially Cats!😾**<br
 🌐 Check out my portfolio: [this website](https://portfolio-drab-beta-14.vercel.app/)<br>
 🎮 I'm also a gamer! Play with me on: [My Steam Profile](https://steamcommunity.com/profiles/76561198372687206/)<br>
 
+## Tech Stack
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 <!--
 <div style="display:flex flex-direction:row">
  <div>
