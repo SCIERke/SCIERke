@@ -1,4 +1,4 @@
-# Hi Friend!! 👋
+# Hello World!👻
 <img src="https://github.com/SCIERke/SCIERke/blob/main/Images/cat_white_2.png" alt="Profile Picture" width="18%" align="right" alt="Github"/>
 
 Hi, my name is Peerapat Setsuk.I'm studying at Bodindecha (Sing Singhaseni) 2 School.<br>
