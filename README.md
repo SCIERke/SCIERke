@@ -9,6 +9,7 @@ I'm passionate about **Cybersecurity, Programming, and especially Cats!😾**<br
 🎮 I'm also a gamer! Play with me on: [My Steam Profile](https://steamcommunity.com/profiles/76561198372687206/)<br>
 
 ## Skills
+- Web (FE): ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 - Web (FE): React ,Next.js ,tailwind ,bootstrap ,Vue.js(Studying)
 - Web (BE): JS ,Exprees.js ,Fastapi ,PHP(Studying)
 - Mobile: Flutter ,React Native 
