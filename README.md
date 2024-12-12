@@ -1,8 +1,7 @@
 ## Hi Friend!! 👋
-
+<img src="https://github.com/SCIERke/SCIERke/blob/main/Images/cat_white_2.png" alt="Profile Picture" width="20%" align="right" alt="Github"/>
 Hi, my name is Peerapat Setsuk.I'm studying at Bodindecha (Sing Singhaseni) 2 School.<br>
 I'm passionate about **Cybersecurity, Programming, and especially Cats!😾**<br>
-<img src="https://github.com/SCIERke/SCIERke/blob/main/Images/cat_white_2.png" alt="Profile Picture" width="20%" align="right" alt="Github"/>
 
 ✉️ Contact me at: [peerapatsetsuk15@gmail.com](malito:peerapatsetsuk15@gmail.com)<br>
 🌐 Check out my portfolio: [this website](https://portfolio-drab-beta-14.vercel.app/)<br>
