@@ -1,7 +1,7 @@
 ## Hi Friend!! 👋
 
 Hi, my name is Peerapat Setsuk.I'm studying at Bodindecha (Sing Singhaseni) 2 School.<br>
-I'm passionate about **Cybersecurity, Programming, and especially Cats!😾**<br><br>
+I'm passionate about **Cybersecurity, Programming, and especially Cats!😾**<br>
 
 ✉️Contact me at: peerapatsetsuk15@gmail.com<br>
 🌐You can see my portfolio: [website](https://portfolio-drab-beta-14.vercel.app/)<br>
