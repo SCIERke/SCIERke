@@ -11,7 +11,7 @@ I'm passionate about **Cybersecurity, Web Dev, Mobile Dev and Cats!😾**<br>
 
 ## Tools
 - Web (FE): React, Next.js, tailwind, bootstrap, Vue.js(Studying)
-- Web (BE): JS, Exprees.js, Fastapi, PHP(Studying)
+- Web (BE): JS, Express.js, FastAPI, PHP(Studying)
 - Mobile: Flutter, React Native 
 - Database: Supabase, Pocketbase, SQLite, Firebase
 - Game Dev: Unity, Netcode
