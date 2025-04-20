@@ -23,4 +23,4 @@ I'm passionate about **Cybersecurity, Web Dev, Mobile Dev and Cats!😾**<br>
 
 
 ## Job Experience
-- FullStack Developer at **CampHouse**
+- FullStack Developer at **CampHouse** (Freelance)
