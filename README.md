@@ -1,13 +1,12 @@
 # Hello Guys!👻
 <img src="https://github.com/SCIERke/SCIERke/blob/main/Images/cat_white_2.png" alt="Profile Picture" width="18%" align="right" alt="Github"/>
 
-Hi, my name is Peerapat Setsuk.I'm studying at Bodindecha (Sing Singhaseni) 2 School.<br>
-I'm passionate about **Cybersecurity, Web Dev, Mobile Dev and Cats!😾**<br>
+Hi, my name is Peerapat Setsuk.I'm studying at Chulalongkorn University.<br>
+I'm passionate about **Mathematic, Physic, AI and Cats!😾**<br>
 
 ✉️ Contact me at: peerapatsetsuk15@gmail.com<br>
 🌐 Check out my portfolio: In maintenance!<br>
 🎮 I'm also a gamer! Play with me on: [My Steam Profile](https://steamcommunity.com/profiles/76561198372687206/)<br>
-👨‍💻 I enjoy learning about Cybersecurity. You can add me: SchierkeStudent#2183308
 
 ## Tools
 - Web (FE): React, Next.js, tailwind, bootstrap, Vue.js(Studying)
