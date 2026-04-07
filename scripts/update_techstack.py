@@ -3,6 +3,7 @@ import json
 import os
 import sys
 import urllib.parse
+import urllib.error
 import urllib.request
 from collections import defaultdict
 
@@ -11,6 +12,7 @@ README_PATH = "README.md"
 START_MARKER = "<!-- AUTO-TECHSTACK:START -->"
 END_MARKER = "<!-- AUTO-TECHSTACK:END -->"
 MAX_BADGES = 8
+EXCLUDED_LANGUAGES = {"Jupyter Notebook", "ShaderLab"}
 
 LOGO_MAP = {
     "C++": "cplusplus",
@@ -25,8 +27,15 @@ def get_json(url, token=None):
     req.add_header("Accept", "application/vnd.github+json")
     if token:
         req.add_header("Authorization", f"Bearer {token}")
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        if exc.code == 403:
+            raise RuntimeError(
+                "GitHub API rate limit exceeded. Provide GITHUB_TOKEN (or GH_TOKEN) and retry."
+            ) from exc
+        raise
 
 
 def list_repos(username, token):
@@ -49,6 +58,8 @@ def collect_languages(repos, token):
             continue
         langs = get_json(repo["languages_url"], token=token)
         for language, size in langs.items():
+            if language in EXCLUDED_LANGUAGES:
+                continue
             lang_totals[language] += int(size)
     return lang_totals
 
@@ -78,10 +89,28 @@ def update_readme(content, generated_block):
 
 def main():
     username = os.getenv("PROFILE_USERNAME", "SCIERke")
-    token = os.getenv("GITHUB_TOKEN", "").strip() or None
+    token = os.getenv("GITHUB_TOKEN", "").strip() or os.getenv("GH_TOKEN", "").strip() or None
+    preview_only = "--preview" in sys.argv
     repos = list_repos(username, token)
     lang_totals = collect_languages(repos, token)
     generated = build_techstack_block(lang_totals)
+
+    if preview_only:
+        owned_repos = [
+            r["name"]
+            for r in repos
+            if not r.get("fork") and not r.get("archived")
+        ]
+        top_languages = sorted(lang_totals.items(), key=lambda x: x[1], reverse=True)[:MAX_BADGES]
+        print("Fetched repos (non-fork, non-archived):")
+        for name in owned_repos:
+            print(f"- {name}")
+        print("\nTop languages:")
+        for language, size in top_languages:
+            print(f"- {language}: {size}")
+        print("\nBadges:")
+        print(generated)
+        return
 
     with open(README_PATH, "r", encoding="utf-8") as f:
         readme = f.read()
