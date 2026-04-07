@@ -1,0 +1,35 @@
+name: Auto Update Tech Stack
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+  repository_dispatch:
+    types: [update-techstack]
+
+permissions:
+  contents: write
+
+jobs:
+  update-techstack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate concise stack badges
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_USERNAME: SCIERke
+        run: python scripts/update_techstack.py
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-update tech stack badges"
+          file_pattern: README.md

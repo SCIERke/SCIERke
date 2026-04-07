@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+import json
+import os
+import sys
+import urllib.parse
+import urllib.request
+from collections import defaultdict
+
+
+README_PATH = "README.md"
+START_MARKER = "<!-- AUTO-TECHSTACK:START -->"
+END_MARKER = "<!-- AUTO-TECHSTACK:END -->"
+MAX_BADGES = 8
+
+LOGO_MAP = {
+    "C++": "cplusplus",
+    "C#": "csharp",
+    "Jupyter Notebook": "jupyter",
+    "Vue": "vuedotjs",
+}
+
+
+def get_json(url, token=None):
+    req = urllib.request.Request(url)
+    req.add_header("Accept", "application/vnd.github+json")
+    if token:
+        req.add_header("Authorization", f"Bearer {token}")
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def list_repos(username, token):
+    page = 1
+    repos = []
+    while True:
+        url = f"https://api.github.com/users/{username}/repos?per_page=100&type=owner&page={page}"
+        items = get_json(url, token=token)
+        if not items:
+            break
+        repos.extend(items)
+        page += 1
+    return repos
+
+
+def collect_languages(repos, token):
+    lang_totals = defaultdict(int)
+    for repo in repos:
+        if repo.get("fork") or repo.get("archived"):
+            continue
+        langs = get_json(repo["languages_url"], token=token)
+        for language, size in langs.items():
+            lang_totals[language] += int(size)
+    return lang_totals
+
+
+def to_badge(language):
+    logo = LOGO_MAP.get(language, language.lower().replace(" ", ""))
+    label = urllib.parse.quote(language)
+    logo_q = urllib.parse.quote(logo)
+    return f"![{language}](https://img.shields.io/badge/{label}-111827?style=for-the-badge&logo={logo_q}&logoColor=white)"
+
+
+def build_techstack_block(lang_totals):
+    top_languages = sorted(lang_totals.items(), key=lambda x: x[1], reverse=True)[:MAX_BADGES]
+    if not top_languages:
+        return "_No language data found yet._"
+    badges = [to_badge(lang) for lang, _ in top_languages]
+    return "".join(badges)
+
+
+def update_readme(content, generated_block):
+    if START_MARKER not in content or END_MARKER not in content:
+        raise ValueError("README markers not found.")
+    before, rest = content.split(START_MARKER, 1)
+    _, after = rest.split(END_MARKER, 1)
+    return f"{before}{START_MARKER}\n{generated_block}\n{END_MARKER}{after}"
+
+
+def main():
+    username = os.getenv("PROFILE_USERNAME", "SCIERke")
+    token = os.getenv("GITHUB_TOKEN", "").strip() or None
+    repos = list_repos(username, token)
+    lang_totals = collect_languages(repos, token)
+    generated = build_techstack_block(lang_totals)
+
+    with open(README_PATH, "r", encoding="utf-8") as f:
+        readme = f.read()
+
+    updated = update_readme(readme, generated)
+
+    with open(README_PATH, "w", encoding="utf-8") as f:
+        f.write(updated)
+
+    print(f"Updated {README_PATH} with top {MAX_BADGES} languages for {username}.")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        sys.exit(1)
