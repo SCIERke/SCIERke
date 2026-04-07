@@ -8,15 +8,6 @@ I'm passionate about **Mathematic, Physic, AI and Cats!😾**<br>
 🌐 Check out my portfolio: In maintenance!<br>
 🎮 I'm also a gamer! Play with me on: [My Steam Profile](https://steamcommunity.com/profiles/76561198372687206/)<br>
 
-## Tools
-- Web (FE): React, Next.js, tailwind, bootstrap, Vue.js(Studying)
-- Web (BE): JS, Express.js, FastAPI, PHP(Studying)
-- Mobile: Flutter, React Native 
-- Database: Supabase, Pocketbase, SQLite, Firebase
-- Game Dev: Unity, Netcode
-- Microcontroller & IOT: Arduino, Node-red
-- DevOps: Vercel ,Render
-
 ## Tech Stack
 <!-- AUTO-TECHSTACK:START -->
 ![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-111827?style=for-the-badge&logo=jupyter&logoColor=white)![Python](https://img.shields.io/badge/Python-111827?style=for-the-badge&logo=python&logoColor=white)![C#](https://img.shields.io/badge/C%23-111827?style=for-the-badge&logo=csharp&logoColor=white)![ASP.NET](https://img.shields.io/badge/ASP.NET-111827?style=for-the-badge&logo=asp.net&logoColor=white)![JavaScript](https://img.shields.io/badge/JavaScript-111827?style=for-the-badge&logo=javascript&logoColor=white)![C++](https://img.shields.io/badge/C%2B%2B-111827?style=for-the-badge&logo=cplusplus&logoColor=white)![TypeScript](https://img.shields.io/badge/TypeScript-111827?style=for-the-badge&logo=typescript&logoColor=white)![ShaderLab](https://img.shields.io/badge/ShaderLab-111827?style=for-the-badge&logo=shaderlab&logoColor=white)
